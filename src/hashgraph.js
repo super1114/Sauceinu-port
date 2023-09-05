@@ -26,7 +26,7 @@ let saveData = {
     savedPairings: []
 }
 const appMetaData = {
-    name: "NFT mint sauceinu",
+    name: "SAUCEINU-PORT",
     description: "A HBAR wallet",
     icon: "https://wallet.hashpack.app/assets/favicon/favicon.ico",
     url:""

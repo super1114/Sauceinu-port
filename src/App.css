@@ -210,6 +210,7 @@ main {
   margin-bottom: 8px;
   margin-top: 8px;
   color: #83ff49;
+  z-index: 100;
 }
 
 .tab-section {
@@ -519,7 +520,9 @@ header ul li a {
   padding: 5px 10px;
   cursor: pointer;
 }
-
+.account-section {
+  z-index: 100;
+}
 .account-section:hover {
   opacity: 0.8;
 }
