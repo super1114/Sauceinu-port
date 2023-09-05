@@ -34,12 +34,12 @@
 }
 
 .background-container{
-	position: fixed;
+	position: relative;
 	top: 0;
 	left:0;
 	bottom: 0;
 	right: 0;
-  z-index: -1;
+  z-index: 0;
 }
 
 .stars {
@@ -143,10 +143,6 @@
 }
 .logo-img-section img {
   width: 200px;
-}
-
-.header-content .header-left .logo img {
-  margin-right: 12px;
 }
 
 main {
@@ -377,11 +373,12 @@ main {
 }
 
 header {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 18px;
-  z-index: 10;
+  z-index: 1;
   border-bottom: 2px solid #275f0e;
 }
 
