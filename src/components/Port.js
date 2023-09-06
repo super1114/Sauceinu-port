@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Dropdown from "./Dropdown";
-import { getNFTs, shouldApprove, approveSauceInu, mintNFT } from "../hashgraph";
 import { Oval } from  'react-loader-spinner'
-function BulkTab({pairingData}) {
+function Port() {
     const [existingNFTs, setExistingNFTs] = useState([]);
     const [selectedCollection, setSelectedCollection] = useState(undefined);
     const [step, setStep] = useState(0);
@@ -13,16 +12,6 @@ function BulkTab({pairingData}) {
     const setNFTSelect = (item) => {
         setSelectedCollection(item);
     }
-    
-    useEffect(() => {
-        const getNFTData = async () => {
-            const data = await getNFTs(pairingData.savedPairings[0].accountIds[0]);
-            setExistingNFTs(data);
-        }
-        if(pairingData.savedPairings.length>0) {
-            getNFTData();
-        }
-    },[pairingData])
 
     
     return (
@@ -54,5 +43,5 @@ function BulkTab({pairingData}) {
     );
   }
   
-  export default BulkTab;
+  export default Port;
   

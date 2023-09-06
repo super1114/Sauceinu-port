@@ -43,11 +43,10 @@ export default function Dropdown({nfts, setSelectedNft}) {
     <div className='box-container' ref={ref}>
       <div
         className={isOpen ? 'select_token_click select_token' : 'select_token'}
-        onClick={toggling}
       >
         <input className='text-input' type='number' placeholder='0.000000'/>
         {selectedOption && selectedOption.name && <span >{selectedOption.name+" | "+selectedOption.symbol+ " | "+selectedOption.token_id}</span>}
-        <div className='select-combo'>
+        <div className='select-combo' onClick={toggling}>
           <span>SELECT</span> &nbsp;
           <img src={isOpen ? PolygonIconUp : PolygonIcon} alt="icon" />
         </div>
