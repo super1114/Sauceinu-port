@@ -18,8 +18,8 @@ function Port() {
     return (
         <>
             <div>
-                <Dropdown tokens={tokens} setSelectedToken={(item)=>setSrcToken(item)} />
-                <Dropdown tokens={tokens} setSelectedToken={(item)=>setTargetToken(item)} />
+                <Dropdown output={false} tokens={tokens} setSelectedToken={(item)=>setSrcToken(item)} />
+                <Dropdown output={true} tokens={tokens} setSelectedToken={(item)=>setTargetToken(item)} />
             </div>
             {step!==0 && <div class="loading-spinner">
                 <Oval

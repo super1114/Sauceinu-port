@@ -23,7 +23,7 @@ const useOutsideClick = (callback) => {
   return ref;
 };
 
-export default function Dropdown({tokens, setSelectedToken}) {
+export default function Dropdown({output, tokens, setSelectedToken}) {
 
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(undefined);
@@ -45,7 +45,7 @@ export default function Dropdown({tokens, setSelectedToken}) {
       <div
         className={isOpen ? 'select_token_click select_token' : 'select_token'}
       >
-        <input className='text-input' type='number' placeholder='0.000000'/>
+        <input className='text-input' disabled={output} type='number' placeholder='0.000000'/>
         <div className='select-combo' onClick={toggling}>
           {selectedOption && <>
             <div className='token-img-group'>
