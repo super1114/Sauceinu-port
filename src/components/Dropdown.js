@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PolygonIcon from '../assets/images/Polygon.svg';
 import PolygonIconUp from '../assets/images/Polygon_up.svg';
+import token from '../assets/images/token.png';
 
 const useOutsideClick = (callback) => {
   const ref = React.useRef();
@@ -22,7 +23,7 @@ const useOutsideClick = (callback) => {
   return ref;
 };
 
-export default function Dropdown({nfts, setSelectedNft}) {
+export default function Dropdown({tokens, setSelectedToken}) {
 
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(undefined);
@@ -30,7 +31,7 @@ export default function Dropdown({nfts, setSelectedNft}) {
   const onOptionClicked = (value) => () => {
     setSelectedOption(value);
     setIsOpen(false);
-    setSelectedNft(value);
+    setSelectedToken(value);
   };
 
   const handleClickOutside = () => {
@@ -45,18 +46,31 @@ export default function Dropdown({nfts, setSelectedNft}) {
         className={isOpen ? 'select_token_click select_token' : 'select_token'}
       >
         <input className='text-input' type='number' placeholder='0.000000'/>
-        {selectedOption && selectedOption.name && <span >{selectedOption.name+" | "+selectedOption.symbol+ " | "+selectedOption.token_id}</span>}
         <div className='select-combo' onClick={toggling}>
-          <span>SELECT</span> &nbsp;
+          {selectedOption && <>
+            <div className='token-img-group'>
+              <img src={token} alt='coin' className='token-image' />&nbsp;
+              <img src={selectedOption.avatar} alt='coin' className='blockchain-image' />&nbsp;
+            </div>
+              {console.log(selectedOption)}
+              <span >{`[${selectedOption.symbol}]`}</span>
+            </>
+          }
+          {!selectedOption && <span>SELECT</span>} &nbsp;
           <img src={isOpen ? PolygonIconUp : PolygonIcon} alt="icon" />
         </div>
       </div>
       {isOpen && (
         <div className="dropdown_list_container">
           <ul className="dropdown_list">
-            {nfts.map((option, key) => (
+            {tokens.map((option, key) => (
               <li key={key} onClick={onOptionClicked(option)}>
-                {option.name+" | "+option.symbol+" | "+option.token_id}
+                <div className='option-img-group'>
+                  <img src={token} alt="token" className='dropdown-img'/>
+                  <img src={option.avatar} alt="token" className='option-network-img'/>
+                </div>
+                &nbsp;&nbsp;
+                SAUCEINU
               </li>
             ))}
           </ul>

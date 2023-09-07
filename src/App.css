@@ -643,6 +643,8 @@ footer ul li a {
   padding: 10px;
   color: white;
   font-size: 14px;
+  display: flex;
+  align-items: center;
 }
 .dropdown_list > li:hover {
   background: #181c14 !important;
@@ -686,4 +688,34 @@ footer ul li a {
   background-color: #282c34;
   border-radius: 4px;
   display: flex;
+  align-items: center;
+}
+
+.token-image {
+  width: 30px;
+}
+
+.token-img-group {
+  display: flex;
+  position: relative;
+}
+.blockchain-image {
+  width: 18px;
+  position: absolute;
+  top: 17px;
+  left: 20px;
+}
+.dropdown-img {
+  width: 40px;
+}
+.option-network-img {
+  position: absolute;
+  width: 20px;
+  top: 20px;
+  left: 20px;
+  
+}
+.option-img-group {
+  display: flex;
+  position: relative;
 }

@@ -1,31 +1,31 @@
 import { useState } from "react";
 import Dropdown from "./Dropdown";
 import { Oval } from  'react-loader-spinner'
+import tokens from "../constants";
 function Port() {
-    const [existingNFTs, setExistingNFTs] = useState([]);
     const [selectedCollection, setSelectedCollection] = useState(undefined);
+    const [srcToken, setSrcToken] = useState(undefined);
+    const [targetToken, setTargetToken] = useState(undefined);
     const [step, setStep] = useState(0);
     const [errorMsg, setErrorMsg] = useState("");
-    const [buttonTxt, setButtonTxt] = useState(["CONFIRM", "UPLOADING METADATA...", "APPROVING SAUCEINU...", "MINTING..."])
-    
+    const [buttonTxt, setButtonTxt] = useState(["CONFIRM", "UPLOADING METADATA..."])
 
-    const setNFTSelect = (item) => {
-        setSelectedCollection(item);
+    const setTokenSelect = (item, src) => {
+        if(src) setSrcToken(item);
+        else setTargetToken(item);
     }
-
     
     return (
         <>
             <div>
-                <Dropdown nfts={existingNFTs} setSelectedNft={setNFTSelect} />
-                <Dropdown nfts={existingNFTs} setSelectedNft={setNFTSelect} />
+                <Dropdown tokens={tokens} setSelectedToken={(item)=>setSrcToken(item)} />
+                <Dropdown tokens={tokens} setSelectedToken={(item)=>setTargetToken(item)} />
             </div>
             {step!==0 && <div class="loading-spinner">
                 <Oval
                     height={80}
                     width={80}
                     color="#4fa94d"
-                    wrapperClass=""
                     visible={true}
                     ariaLabel='oval-loading'
                     secondaryColor="#4fa94d"
