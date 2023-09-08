@@ -152,7 +152,7 @@ main {
 
 .container {
   position: relative;
-  z-index: 2;  
+  z-index: 0;
   margin: auto;
   width: 800px;
 
@@ -475,14 +475,13 @@ header ul li a {
 }
 
 .disconnect-modal {
-  border: 0.5px solid #83ff49 !important;;
   border-radius: 8px;
   padding: 20px;
   z-index: 1000;
-  background-color: rgb(12, 12, 12);
+  background-color: rgb(28, 28, 28);
   position: absolute;
   right: 18px;
-  top: 82px;
+  top: 70px;
 }
 .disconnect-btn {
   border-radius: 4.73px;
@@ -713,9 +712,23 @@ footer ul li a {
   width: 20px;
   top: 20px;
   left: 20px;
-  
+
 }
 .option-img-group {
   display: flex;
   position: relative;
+}
+
+.hashpack-address, .evm-address {
+  display: flex;
+  color: white;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 0px;
+}
+.divider {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-bottom: 0.01em solid #275f0e ;
+  width: 100%;
 }

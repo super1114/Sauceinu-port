@@ -3,7 +3,7 @@ module.exports = [
         network: "Hedera",
         symbol: "hbar",
         avatar: "https://cdn.hashport.network/HEDERA.svg",
-        chainId: "",
+        chainId: "295",
         address: "0.0.2964435"
     },
     {

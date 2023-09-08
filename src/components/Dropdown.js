@@ -5,7 +5,6 @@ import token from '../assets/images/token.png';
 
 const useOutsideClick = (callback) => {
   const ref = React.useRef();
-
   React.useEffect(() => {
     const handleClick = (event) => {
       if (ref.current && !ref.current.contains(event.target)) {
@@ -24,7 +23,6 @@ const useOutsideClick = (callback) => {
 };
 
 export default function Dropdown({output, tokens, setSelectedToken}) {
-
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(undefined);
   const toggling = () => setIsOpen(!isOpen);
@@ -52,7 +50,6 @@ export default function Dropdown({output, tokens, setSelectedToken}) {
               <img src={token} alt='coin' className='token-image' />&nbsp;
               <img src={selectedOption.avatar} alt='coin' className='blockchain-image' />&nbsp;
             </div>
-              {console.log(selectedOption)}
               <span >{`[${selectedOption.symbol}]`}</span>
             </>
           }
