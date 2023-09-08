@@ -1,25 +1,37 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Dropdown from "./Dropdown";
 import { Oval } from  'react-loader-spinner'
 import tokens from "../constants";
 function Port() {
-    const [selectedCollection, setSelectedCollection] = useState(undefined);
     const [srcToken, setSrcToken] = useState(undefined);
     const [targetToken, setTargetToken] = useState(undefined);
+    const [srcTokens, setSrcTokens] = useState(tokens);
+    const [targetTokens, setTargetTokens] = useState(tokens);
     const [step, setStep] = useState(0);
     const [errorMsg, setErrorMsg] = useState("");
     const [buttonTxt, setButtonTxt] = useState(["CONFIRM", "UPLOADING METADATA..."])
+
+    useEffect(() => {
+        if(srcToken && srcToken == tokens[0]) {
+            const [first, ...rest] = tokens;
+            setTargetTokens(rest)
+        } else if(srcToken) {
+            setTargetTokens([tokens[0]]);
+        } 
+    }, [srcToken]);
 
     const setTokenSelect = (item, src) => {
         if(src) setSrcToken(item);
         else setTargetToken(item);
     }
     
+
+
     return (
         <>
             <div>
-                <Dropdown output={false} tokens={tokens} setSelectedToken={(item)=>setSrcToken(item)} />
-                <Dropdown output={true} tokens={tokens} setSelectedToken={(item)=>setTargetToken(item)} />
+                <Dropdown output={false} tokens={srcTokens} setSelectedToken={(item)=>setSrcToken(item)} />
+                <Dropdown output={true} tokens={targetTokens} setSelectedToken={(item)=>setTargetToken(item)} />
             </div>
             {step!==0 && <div class="loading-spinner">
                 <Oval
